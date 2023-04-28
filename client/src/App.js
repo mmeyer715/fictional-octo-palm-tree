@@ -1,3 +1,5 @@
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+
 import './App.css';
 import * as React from 'react';
 import logo from './assets/cdlogo.png';
@@ -23,6 +25,14 @@ import {
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { Stack } from '@mui/system';
 
+const httpLink = createHttpLink({
+  uri: 'http://localhost:3001/graphql'
+});
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+});
 
 function App() {
   const [product, setProduct] = React.useState('');
@@ -55,7 +65,7 @@ function App() {
 
 
   return (
-    <>
+    <ApolloProvider client={client}>
       <Grid
         container
         direction="row"
@@ -478,7 +488,7 @@ function App() {
           </Button>
         </Stack>
       </Grid>
-    </>
+    </ ApolloProvider>
   );
 }
 
