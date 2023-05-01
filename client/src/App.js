@@ -26,7 +26,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { Stack } from '@mui/system';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql'
+  uri: '/graphql'
 });
 
 const client = new ApolloClient({
