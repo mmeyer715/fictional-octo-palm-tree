@@ -29,10 +29,10 @@ const answerSchema = new Schema(
             required: true,
             // get: timestamp => dateFormat(timestamp)
         },
-        productType: {
-            type: String,
-            required: true
-        },
+        // productType: {
+        //     type: String,
+        //     required: true
+        // },
         licenseNum: {
             type: String,
         },

@@ -23,5 +23,8 @@
   "homepage": "https://github.com/mmeyer715/fictional-octo-palm-tree#readme",
   "devDependencies": {
     "concurrently": "^8.0.1"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.7.0"
   }
 }

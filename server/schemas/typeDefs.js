@@ -1,7 +1,7 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-    type Answer {
+    type Answers {
         _id: ID
         firstName: String
         lastName: String
@@ -9,7 +9,6 @@ const typeDefs = gql`
         phone: String
         socialSecurity: String
         birthday: String
-        productType: String
         licenseNum: String
         password: String
         street: String
@@ -35,7 +34,7 @@ const typeDefs = gql`
     }
     
     type Query {
-        getAnswers: [Answer]
+        getAnswers: [Answers]
     }
 
     type Mutation {
@@ -46,7 +45,6 @@ const typeDefs = gql`
             phone: String!,
             socialSecurity: String!,
             birthday: String!,
-            productType: String!,
             licenseNum: String!,
             password: String!,
             street: String!,
@@ -70,7 +68,7 @@ const typeDefs = gql`
             digitalPhoto: String!,
             governmentId: String!
 
-        ): Answer
+        ): Answers
     }
 `;
 
