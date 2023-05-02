@@ -22,21 +22,13 @@ import {
   FormControlLabel,
   Radio,
   Typography,
-  Button
+  Button,
+  Container
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { Stack } from '@mui/system';
 
 import { ADD_ANSWERS } from './utils/mutations';
-
-// const httpLink = createHttpLink({
-//   uri: '/graphql'
-// });
-
-// const client = new ApolloClient({
-//   link: httpLink,
-//   cache: new InMemoryCache(),
-// });
 
 function App() {
   const [addAnswers, { error }] = useMutation(ADD_ANSWERS);
@@ -48,7 +40,6 @@ function App() {
     phone: '',
     socialSecurity: '',
     birthday: '',
-    // productType: '',
     licenseNum: '',
     password: '',
     street: '',
@@ -60,17 +51,17 @@ function App() {
     mailState: '',
     mailZipcode: '',
     multiLang: '',
-    assistantPrograms: '',
-    cultAreaDescript: '',
-    cultAccess: '',
-    cultivationShared: '',
-    trueInfo: '',
-    cultStreet: '',
-    cultCity: '',
-    cultState: '',
-    cultZipcode: '',
-    digitalPhoto: '',
-    governmentId: ''
+    // assistantPrograms: '',
+    // cultAreaDescript: '',
+    // cultAccess: '',
+    // cultivationShared: '',
+    // trueInfo: '',
+    // cultStreet: '',
+    // cultCity: '',
+    // cultState: '',
+    // cultZipcode: '',
+    // // digitalPhoto: '',
+    // // governmentId: ''
   })
 
   const handleChange = event => {
@@ -82,7 +73,7 @@ function App() {
     });
   };
 
-  const handleFormSubmit = async event => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
@@ -101,7 +92,6 @@ function App() {
       phone: '',
       socialSecurity: '',
       birthday: '',
-      // productType: '',
       licenseNum: '',
       password: '',
       street: '',
@@ -113,17 +103,17 @@ function App() {
       mailState: '',
       mailZipcode: '',
       multiLang: '',
-      assistantPrograms: '',
-      cultAreaDescript: '',
-      cultAccess: '',
-      cultivationShared: '',
-      trueInfo: '',
-      cultStreet: '',
-      cultCity: '',
-      cultState: '',
-      cultZipcode: '',
-      digitalPhoto: '',
-      governmentId: '',
+      // assistantPrograms: '',
+      // cultAreaDescript: '',
+      // cultAccess: '',
+      // cultivationShared: '',
+      // trueInfo: '',
+      // cultStreet: '',
+      // cultCity: '',
+      // cultState: '',
+      // cultZipcode: '',
+      // // digitalPhoto: '',
+      // // governmentId: '',
     })
   }
 
@@ -155,8 +145,6 @@ function App() {
     },
   }));
 
-
-
   return (
     <>
       <Grid
@@ -166,7 +154,7 @@ function App() {
         alignItems="center"
       >
         <Grid item>
-          <img class="responsive-img logo" src={logo} alt="City Distributions Logo" />
+          <img className="responsive-img logo" src={logo} alt="City Distributions Logo" />
         </Grid>
         <Grid item>
           <Typography variant="h2" gutterBottom align="center">Thank you for using Collective Clinic!</Typography>
@@ -184,7 +172,6 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth>
               <TextField
-                id="firstName"
                 helperText="Legal First Name"
                 variant="standard"
                 name="firstName"
@@ -196,7 +183,6 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth >
               <TextField
-                id="lastName"
                 helperText="Legal Last Name"
                 variant="standard"
                 name="lastName"
@@ -208,7 +194,6 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth>
               <TextField
-                id="email"
                 helperText="Email"
                 variant="standard"
                 name="email"
@@ -220,7 +205,6 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth >
               <TextField
-                id="phone"
                 helperText="Phone Number"
                 variant="standard"
                 name="phone"
@@ -233,7 +217,6 @@ function App() {
             <FormControl fullWidth variant="standard">
               <InputLabel htmlFor="standard-adornment-social">Social Security Number</InputLabel>
               <Input
-                id="socialSecurity"
                 type={showSocial ? 'text' : 'password'}
                 endAdornment={
                   <InputAdornment position='end'>
@@ -255,7 +238,6 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth>
               <TextField
-                id="birthday"
                 label="Date of Birth"
                 type="date"
                 variant='standard'
@@ -273,7 +255,6 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth>
               <TextField
-                id='licenseNum'
                 label='If renewal, license number:'
                 variant='standard'
                 name="licenseNum"
@@ -287,7 +268,6 @@ function App() {
             <FormControl fullWidth variant="standard">
               <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
               <Input
-                id="password"
                 type={showPassword ? 'text' : 'password'}
                 endAdornment={
                   <InputAdornment position="end">
@@ -316,7 +296,6 @@ function App() {
           <Grid item xs={12}>
             <FormControl fullWidth>
               <TextField
-                id="street"
                 helperText="Street Address"
                 variant="standard"
                 name="street"
@@ -327,9 +306,7 @@ function App() {
           </Grid>
           <Grid item xs={6}>
             <FormControl fullWidth>
-              <TextField
-                id="city"
-                helperText="City"
+              <TextField                helperText="City"
                 variant="standard"
                 name="city"
                 value={answersData.city}
@@ -340,7 +317,6 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth >
               <TextField
-                id="state"
                 helperText="State"
                 variant="standard"
                 name="state"
@@ -352,7 +328,6 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth>
               <TextField
-                id="zipcode"
                 helperText="Zipcode"
                 variant="standard"
                 name="zipcode"
@@ -371,7 +346,6 @@ function App() {
           <Grid item xs={12}>
             <FormControl fullWidth>
               <TextField
-                id="mailStreet"
                 helperText="Street Address"
                 variant="standard"
                 name="mailStreet"
@@ -383,7 +357,6 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth>
               <TextField
-                id="mailCity"
                 helperText="City"
                 variant="standard"
                 name="mailCity"
@@ -395,7 +368,6 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth >
               <TextField
-                id="mailState"
                 helperText="state"
                 variant="standard"
                 name="mailState"
@@ -407,7 +379,6 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth>
               <TextField
-                id="mailZipcode"
                 helperText="Zipcode"
                 variant="standard"
                 name="mailZipcode"
@@ -429,7 +400,6 @@ function App() {
               <RadioGroup
                 row
                 aria-labelledby='demo-radio-buttons-group-label'
-                name='langButtons'
                 id="languages"
               >
                 <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
@@ -451,7 +421,6 @@ function App() {
               <RadioGroup
                 row
                 aria-labelledby='demo-radio-buttons-group-label'
-                name='lowIncomeButtons'
                 id="lowIncome"
               >
                 <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
@@ -473,7 +442,6 @@ function App() {
               <RadioGroup
                 row
                 aria-labelledby='demo-radio-buttons-group-label'
-                name='cultButtons'
                 id="cultivation"
               >
                 <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
@@ -497,14 +465,11 @@ function App() {
               <RadioGroup
                 row
                 aria-labelledby='demo-radio-buttons-group-label'
-                name='cultAccessButtons'
                 id="cultAccess"
               >
                 <FormControlLabel
-                  name="cultAccess"
-                  value={answersData.cultAccess}
-                  onChange={handleChange}
-                  control={<Radio />} label="Yes" />
+                  control={<Radio name="cultAccess" value={answersData.cultAccess}
+                  onChange={handleChange} />} label="Yes" />
                 <FormControlLabel value="No" control={<Radio />} label="No" />
               </RadioGroup>
             </FormControl>
@@ -515,7 +480,6 @@ function App() {
               <RadioGroup
                 row
                 aria-labelledby='demo-radio-buttons-group-label'
-                name='cultSharedButtons'
                 id="cultShared"
               >
                 <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
@@ -538,14 +502,12 @@ function App() {
               <RadioGroup
                 row
                 aria-labelledby='demo-radio-buttons-group-label'
-                name='trueButtons'
                 id="trueInfo"
               >
                 <FormControlLabel
-                  name="trueInfo"
+                  control={<Radio name="trueInfo"
                   value={answersData.trueInfo}
-                  onChange={handleChange}
-                  control={<Radio />} label="Yes" />
+                  onChange={handleChange}/>} label="Yes" />
                 <FormControlLabel value="No" control={<Radio />} label="No" />
               </RadioGroup>
 
@@ -609,7 +571,7 @@ function App() {
             <Divider sx={{ fontSize: 'h6.fontSize' }}>DOCUMENTS</Divider>
           </Root>
         </Grid>
-        <Grid container spacing={2} sx={{ p: 1 }}>
+        {/* <Grid container spacing={2} sx={{ p: 1 }}>
           <Grid item xs={6}>
             <FormControl fullWidth>
               <FormLabel sx={{ mb: 3 }} htmlFor='digitalPhoto'>Digital Photo</FormLabel>
@@ -629,7 +591,7 @@ function App() {
               </Stack>
             </FormControl>
           </Grid>
-          <Grid item xs={6} spacing={2} >
+          <Grid container spacing={2} sx={{ p: 1 }} >
             <FormControl fullWidth>
               <FormLabel sx={{ mb: 3 }} htmlFor='governmentPhoto'>Government Issued Photo Identification Card</FormLabel>
               <Stack direction="row" spacing={2}>
@@ -649,12 +611,12 @@ function App() {
               </Stack>
             </FormControl>
           </Grid>
-        </Grid>
+        </Grid> */}
         <Grid container direction="column" justifyContent="center" alignItems="center" className='subButton'>
           <Typography variant='h6'>Before submitting, please review all answers for accuracy. Thank you!</Typography>
           <Stack>
 
-            <Button variant="contained" href="#contained-buttons" type='submit' >
+            <Button variant="contained" type='submit' >
               Submit
             </Button>
           </Stack>

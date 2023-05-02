@@ -8,8 +8,7 @@ mutation addAnswers(
     $phone: String!,
     $socialSecurity: String!,
     $birthday: String!,
-    $productType: String!,
-    $licenseNum: String!,
+    $licenseNum: String,
     $password: String!,
     $street: String!,
     $city: String!,
@@ -20,17 +19,15 @@ mutation addAnswers(
     $mailState: String!,
     $mailZipcode: String!,
     $multiLang: String!,
-    $assistantPrograms: String!,
-    $cultAreaDescript: String!,
-    $cultAccess: String!,
-    $cultivationShared: String!
-    $trueInfo: String!,
+    $assistantPrograms: String,
+    $cultAreaDescript: String,
+    $cultAccess: String,
+    $cultivationShared: String
+    $trueInfo: String,
     $cultStreet: String,
     $cultCity: String,
     $cultState: String,
     $cultZipcode: String,
-    $digitalPhoto: String!,
-    $governmentId: String!
 ){
     addAnswers(
         firstName: $firstName,
@@ -59,15 +56,12 @@ mutation addAnswers(
         cultCity: $cultCity,
         cultState: $cultState,
         cultZipcode: $cultZipcode,
-        digitalPhoto: $digitalPhoto,
-        governmentId: $governementId
     ) {
-        answers{
             _id
             firstName
             lastName
             email
+            phone
         }
-    }
 }
 `;

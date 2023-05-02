@@ -29,10 +29,6 @@ const answerSchema = new Schema(
             required: true,
             // get: timestamp => dateFormat(timestamp)
         },
-        // productType: {
-        //     type: String,
-        //     required: true
-        // },
         licenseNum: {
             type: String,
         },
@@ -74,27 +70,27 @@ const answerSchema = new Schema(
         },
         multiLang: {
             type: String,
-            required: true
+            // required: true
         },
         assistantPrograms: {
             type: String,
-            required: true
+            // required: true
         },
         cultAreaDescript: {
             type: String,
-            required: true
+            // required: true
         },
         cultAccess: {
             type: String,
-            required: true
+            // required: true
         },
         cultivationShared: {
             type: String,
-            required: true
+            // required: true
         },
         trueInfo: {
             type: String,
-            required: true
+            // required: true
         },
         cultStreet: {
             type: String,
@@ -108,14 +104,14 @@ const answerSchema = new Schema(
         cultZipcode: {
             type: String,
         },
-        digitalPhoto: {
-            type: String,
-            required: true
-        },
-        governmentId: {
-            type: String,
-            required: true
-        }
+        // digitalPhoto: {
+        //     type: String,
+        //     required: true
+        // },
+        // governmentId: {
+        //     type: String,
+        //     required: true
+        // }
     },
     {
         toJSON: {
