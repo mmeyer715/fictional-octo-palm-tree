@@ -18,7 +18,7 @@ mutation addAnswers(
     $mailCity: String!,
     $mailState: String!,
     $mailZipcode: String!,
-    $multiLang: String!,
+    $multiLang: String,
     $assistantPrograms: String,
     $cultAreaDescript: String,
     $cultAccess: String,

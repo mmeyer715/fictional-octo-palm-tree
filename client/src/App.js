@@ -1,5 +1,5 @@
-import { 
-  useMutation 
+import {
+  useMutation
 } from '@apollo/client';
 import { useState } from 'react';
 import './App.css';
@@ -51,15 +51,15 @@ function App() {
     mailState: '',
     mailZipcode: '',
     multiLang: '',
-    // assistantPrograms: '',
-    // cultAreaDescript: '',
-    // cultAccess: '',
-    // cultivationShared: '',
-    // trueInfo: '',
-    // cultStreet: '',
-    // cultCity: '',
-    // cultState: '',
-    // cultZipcode: '',
+    assistantPrograms: '',
+    cultAreaDescript: '',
+    cultAccess: '',
+    cultivationShared: '',
+    trueInfo: '',
+    cultStreet: '',
+    cultCity: '',
+    cultState: '',
+    cultZipcode: '',
     // // digitalPhoto: '',
     // // governmentId: ''
   })
@@ -103,15 +103,15 @@ function App() {
       mailState: '',
       mailZipcode: '',
       multiLang: '',
-      // assistantPrograms: '',
-      // cultAreaDescript: '',
-      // cultAccess: '',
-      // cultivationShared: '',
-      // trueInfo: '',
-      // cultStreet: '',
-      // cultCity: '',
-      // cultState: '',
-      // cultZipcode: '',
+      assistantPrograms: '',
+      cultAreaDescript: '',
+      cultAccess: '',
+      cultivationShared: '',
+      trueInfo: '',
+      cultStreet: '',
+      cultCity: '',
+      cultState: '',
+      cultZipcode: '',
       // // digitalPhoto: '',
       // // governmentId: '',
     })
@@ -292,7 +292,7 @@ function App() {
             <Divider sx={{ fontSize: 'h6.fontSize' }}>RESIDENTIAL ADDRESS</Divider>
           </Root>
         </Grid>
-        <Grid container spacing={2} sx={{ p: 1 }}>
+        <Grid container spacing={2} sx={{ p: 1 }} direction='row' justifyContent='space-between'>
           <Grid item xs={12}>
             <FormControl fullWidth>
               <TextField
@@ -306,7 +306,7 @@ function App() {
           </Grid>
           <Grid item xs={6}>
             <FormControl fullWidth>
-              <TextField                helperText="City"
+              <TextField helperText="City"
                 variant="standard"
                 name="city"
                 value={answersData.city}
@@ -394,20 +394,12 @@ function App() {
           </Root>
         </Grid>
         <Grid container spacing={5} sx={{ p: 1 }}>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={12} md={6}>
             <FormControl fullWidth>
               <FormLabel id="languages">Do you speak a language other than English?</FormLabel>
-              <RadioGroup
-                row
-                aria-labelledby='demo-radio-buttons-group-label'
-                id="languages"
-              >
-                <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                <FormControlLabel value="No" control={<Radio />} label="No" />
-              </RadioGroup>
               <TextField
                 id="multiLang"
-                label="If yes, please list here:"
+                helperText="Yes or No. If yes, please list here:"
                 variant='standard'
                 name="multiLang"
                 value={answersData.multiLang}
@@ -415,20 +407,12 @@ function App() {
               />
             </FormControl>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={12} md={6}>
             <FormControl fullWidth>
               <FormLabel>Are you currently eligible for any Missouri low-income assistance programs?</FormLabel>
-              <RadioGroup
-                row
-                aria-labelledby='demo-radio-buttons-group-label'
-                id="lowIncome"
-              >
-                <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                <FormControlLabel value="No" control={<Radio />} label="No" />
-              </RadioGroup>
               <TextField
                 id="assistantPrograms"
-                label="If yes, please list here:"
+                helperText="Yes or No. If yes, please list here:"
                 variant='standard'
                 name="assistantPrograms"
                 value={answersData.assistantPrograms}
@@ -436,22 +420,12 @@ function App() {
               />
             </FormControl>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={12} md={6}>
             <FormControl fullWidth>
               <FormLabel>Do you intend to cultivate medical marijuana?</FormLabel>
-              <RadioGroup
-                row
-                aria-labelledby='demo-radio-buttons-group-label'
-                id="cultivation"
-              >
-                <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                <FormControlLabel value="No" control={<Radio />} label="No" />
-              </RadioGroup>
-              <FormLabel>If yes, provide a detailed description of your secured cultivation area, how you plan to secure your cultivation area, and who will have access to the cultivation area to ensure your description meets the following requirements pursuant to 19 CSR 30-95.010. </FormLabel>
               <TextField
-                id="cultAreaDescript"
                 multiline
-                helperText="Names of patients and caregivers having access to the cultivation should be listed in the cultivation description. If the cultivation space will be shared with others cultivating they should be listed in the shared cultivation section below."
+                helperText="If yes, provide a detailed description of your secured cultivation area, how you plan to secure your cultivation area, and who will have access to the cultivation area to ensure your description meets the following requirements pursuant to 19 CSR 30-95.010. If the cultivation space will be shared with others cultivating they should be listed in the shared cultivation section below."
                 variant='standard'
                 name="cultAreaDescript"
                 value={answersData.cultAreaDescript}
@@ -459,35 +433,23 @@ function App() {
               />
             </FormControl>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={12} md={6}>
             <FormControl fullWidth>
               <FormLabel>Do you agree to immediately make available access to the patient cultivation facility upon request from the department?</FormLabel>
-              <RadioGroup
-                row
-                aria-labelledby='demo-radio-buttons-group-label'
-                id="cultAccess"
-              >
-                <FormControlLabel
-                  control={<Radio name="cultAccess" value={answersData.cultAccess}
-                  onChange={handleChange} />} label="Yes" />
-                <FormControlLabel value="No" control={<Radio />} label="No" />
-              </RadioGroup>
+              <TextField
+                helperText="Yes or No"
+                variant='standard'
+                name="cultAccess"
+                value={answersData.cultAccess}
+                onChange={handleChange}
+              />
             </FormControl>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={12} md={6}>
             <FormControl fullWidth>
               <FormLabel>Will this cultivation facility be shared?</FormLabel>
-              <RadioGroup
-                row
-                aria-labelledby='demo-radio-buttons-group-label'
-                id="cultShared"
-              >
-                <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                <FormControlLabel value="No" control={<Radio />} label="No" />
-              </RadioGroup>
               <TextField
                 id="cultivationShared"
-                label="Patient/Caregiver Details"
                 helperText="Name and License Number of Patient/Caregiver"
                 variant='standard'
                 name="cultivationShared"
@@ -496,21 +458,16 @@ function App() {
               />
             </FormControl>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} sm={12} md={6}>
             <FormControl fullWidth>
               <FormLabel>Do you attest that the information provided in this application is true and correct?</FormLabel>
-              <RadioGroup
-                row
-                aria-labelledby='demo-radio-buttons-group-label'
-                id="trueInfo"
-              >
-                <FormControlLabel
-                  control={<Radio name="trueInfo"
-                  value={answersData.trueInfo}
-                  onChange={handleChange}/>} label="Yes" />
-                <FormControlLabel value="No" control={<Radio />} label="No" />
-              </RadioGroup>
-
+              <TextField
+                helperText="Yes or No"
+                variant='standard'
+                name="trueInfo"
+                value={answersData.trueInfo}
+                onChange={handleChange}
+              />
             </FormControl>
           </Grid>
 
@@ -570,6 +527,18 @@ function App() {
           <Root>
             <Divider sx={{ fontSize: 'h6.fontSize' }}>DOCUMENTS</Divider>
           </Root>
+        </Grid>
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Grid item align="center">
+            <FormControl fullWidth>
+              <FormLabel>Please email a clear photo of yourself and the front of your Governement ID to <strong>maria@thecollectiveonmain.com</strong> to complete your registration.</FormLabel>
+            </FormControl>
+          </Grid>
         </Grid>
         {/* <Grid container spacing={2} sx={{ p: 1 }}>
           <Grid item xs={6}>
