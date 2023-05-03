@@ -14,10 +14,10 @@ mutation addAnswers(
     $city: String!,
     $state: String!,
     $zipcode: String!,
-    $mailStreet: String!,
-    $mailCity: String!,
-    $mailState: String!,
-    $mailZipcode: String!,
+    $mailStreet: String,
+    $mailCity: String,
+    $mailState: String,
+    $mailZipcode: String,
     $multiLang: String,
     $assistantPrograms: String,
     $cultAreaDescript: String,
@@ -28,6 +28,7 @@ mutation addAnswers(
     $cultCity: String,
     $cultState: String,
     $cultZipcode: String,
+    $sameAsResidental: [String]
 ){
     addAnswers(
         firstName: $firstName,
@@ -56,6 +57,7 @@ mutation addAnswers(
         cultCity: $cultCity,
         cultState: $cultState,
         cultZipcode: $cultZipcode,
+        sameAsResidental: $sameAsResidental
     ) {
             _id
             firstName

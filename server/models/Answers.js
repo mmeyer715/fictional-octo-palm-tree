@@ -54,19 +54,19 @@ const answerSchema = new Schema(
         },
         mailStreet: {
             type: String,
-            required: true
+            // required: true
         },
         mailCity: {
             type: String,
-            required: true
+            // required: true
         },
         mailState: {
             type: String,
-            required: true
+            // required: true
         },
         mailZipcode: {
             type: String,
-            required: true
+            // required: true
         },
         multiLang: {
             type: String,
@@ -104,6 +104,9 @@ const answerSchema = new Schema(
         cultZipcode: {
             type: String,
         },
+        sameAsResidental: {
+            type: String
+        }
         // digitalPhoto: {
         //     type: String,
         //     required: true

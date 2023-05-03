@@ -29,6 +29,7 @@ const typeDefs = gql`
         cultCity: String,
         cultState: String,
         cultZipcode: String
+        sameAsResidental: [String]
     }
     
     type Query {
@@ -49,10 +50,10 @@ const typeDefs = gql`
             city: String!,
             state: String!,
             zipcode: String!,
-            mailStreet: String!,
-            mailCity: String!,
-            mailState: String!,
-            mailZipcode: String!,
+            mailStreet: String,
+            mailCity: String,
+            mailState: String,
+            mailZipcode: String,
             multiLang: String,
             assistantPrograms: String,
             cultAreaDescript: String,
@@ -62,7 +63,8 @@ const typeDefs = gql`
             cultStreet: String,
             cultCity: String,
             cultState: String,
-            cultZipcode: String
+            cultZipcode: String,
+            sameAsResidental: [String]
 
         ): Answers
     }

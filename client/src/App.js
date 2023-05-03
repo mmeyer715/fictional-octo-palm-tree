@@ -23,7 +23,8 @@ import {
   Radio,
   Typography,
   Button,
-  Container
+  Container,
+  Checkbox
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { Stack } from '@mui/system';
@@ -60,6 +61,7 @@ function App() {
     cultCity: '',
     cultState: '',
     cultZipcode: '',
+    sameAsResidental: ''
     // // digitalPhoto: '',
     // // governmentId: ''
   })
@@ -112,15 +114,21 @@ function App() {
       cultCity: '',
       cultState: '',
       cultZipcode: '',
+      sameAsResidental: ''
       // // digitalPhoto: '',
       // // governmentId: '',
     })
   }
+  // Address Checkbox, set state
+  const [checked, setChecked] = useState([]);
 
-  // const [product, setProduct] = React.useState('');
-  // const handleProductChange = (event) => {
-  //   setProduct(event.target.value)
-  // }
+  const handleCheck = (event) => {
+    var sameAddress = [...checked];
+    if (event.target.checked) {
+      sameAddress = [...checked, event.target.value]
+    } 
+    setChecked(sameAddress);
+  }
 
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -172,7 +180,7 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth>
               <TextField
-                helperText="Legal First Name"
+                label="Legal First Name"
                 variant="standard"
                 name="firstName"
                 value={answersData.firstName}
@@ -183,7 +191,7 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth >
               <TextField
-                helperText="Legal Last Name"
+                label="Legal Last Name"
                 variant="standard"
                 name="lastName"
                 value={answersData.lastName}
@@ -194,7 +202,7 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth>
               <TextField
-                helperText="Email"
+                label="Email"
                 variant="standard"
                 name="email"
                 value={answersData.email}
@@ -205,7 +213,7 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth >
               <TextField
-                helperText="Phone Number"
+                label="Phone Number"
                 variant="standard"
                 name="phone"
                 value={answersData.phone}
@@ -255,7 +263,7 @@ function App() {
           <Grid item xs={6}>
             <FormControl fullWidth>
               <TextField
-                label='If renewal, license number:'
+                label='If medical card renewal, license number:'
                 variant='standard'
                 name="licenseNum"
                 value={answersData.licenseNum}
@@ -283,6 +291,7 @@ function App() {
                 name="password"
                 value={answersData.password}
                 onChange={handleChange}
+                placeholder="8 characters,1 uppercase ,1 lowercase ,1 number."
               />
             </FormControl>
           </Grid>
@@ -342,7 +351,15 @@ function App() {
             <Divider sx={{ fontSize: 'h6.fontSize' }}>MAILING ADDRESS</Divider>
           </Root>
         </Grid>
-        <Grid container spacing={2} sx={{ p: 1 }}>
+        <Grid container direction="row" display='flex' spacing={2} sx={{ p: 1 }}>
+          <Grid item xs={12}>
+            <FormLabel>Same As Residential Address</FormLabel>
+                  <Checkbox 
+                    name='sameAsResidental'
+                    onChange={handleCheck}
+                    value={answersData.sameAsResidental = checked}
+                  />
+          </Grid>
           <Grid item xs={12}>
             <FormControl fullWidth>
               <TextField
@@ -435,7 +452,7 @@ function App() {
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
             <FormControl fullWidth>
-              <FormLabel>Do you agree to immediately make available access to the patient cultivation facility upon request from the department?</FormLabel>
+              <FormLabel>If cultivating, do you agree to immediately make available access to the patient cultivation facility upon request from the department?</FormLabel>
               <TextField
                 helperText="Yes or No"
                 variant='standard'
