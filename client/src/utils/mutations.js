@@ -28,7 +28,7 @@ mutation addAnswers(
     $cultCity: String,
     $cultState: String,
     $cultZipcode: String,
-    $sameAsResidental: [String]
+    $sameAsResidental: String
 ){
     addAnswers(
         firstName: $firstName,

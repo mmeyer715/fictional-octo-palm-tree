@@ -126,7 +126,9 @@ function App() {
     var sameAddress = [...checked];
     if (event.target.checked) {
       sameAddress = [...checked, event.target.value]
-    } 
+    } else {
+      sameAddress.splice(checked.indexOf(event.target.value), 1);
+    }
     setChecked(sameAddress);
   }
 
@@ -354,11 +356,13 @@ function App() {
         <Grid container direction="row" display='flex' spacing={2} sx={{ p: 1 }}>
           <Grid item xs={12}>
             <FormLabel>Same As Residential Address</FormLabel>
+                <div value={answersData.sameAsResidental = checked}>
                   <Checkbox 
                     name='sameAsResidental'
+                    value="sameAsResidental"
                     onChange={handleCheck}
-                    value={answersData.sameAsResidental = checked}
                   />
+                </div>
           </Grid>
           <Grid item xs={12}>
             <FormControl fullWidth>
